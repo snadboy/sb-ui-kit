@@ -29,3 +29,7 @@ Watch / SB Background sidebar pages). sb_scheduler, sb_watch and sb_background d
 Verified 2026-10-14 headless, cards mounted in hui-view: kit injected 3 s late → all three
 cards went Loading… → rendered (6 / 5 / 3 rows), sheets adopted, menus via SBKit; no kit →
 the "not loaded" message after 15 s; no page errors.
+
+## 0.2.0 (2026-10-14) — for SB Entity Browser
+
+Additive (api 1): `.sbk-row.dense`, `.sbk-ico.sm`, `.sbk-ico.hit`, `.sbk-kb.dim`/`[disabled]`, `.sbk-kb.on-state`; `.sbk-count` no longer wraps. sb_filter 0.8.1 depends on sb_ui_kit so the browser always has it.

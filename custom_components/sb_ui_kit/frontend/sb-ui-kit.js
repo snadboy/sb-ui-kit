@@ -13,6 +13,9 @@
  *   away(close)  → unsubscribe; calls close() on the next outside click or Escape
  *   esc(s)       HTML-escape
  * A card that loads first waits for the window event "sb-ui-kit-ready".
+ * 0.2.0 (api 1, additive): .sbk-row.dense (compact rows), .sbk-ico.sm (32 px icon),
+ *   .sbk-ico.hit (an icon that is its own control: pointer + ring on hover),
+ *   .sbk-kb.dim / [disabled], .sbk-kb.on-state (a toggled-on header button).
  *
  * The style (agreed 2026-10-14 from a canvas mockup): header = title · count · + Add · ⋮;
  * row = status icon (tint armed/run/idle/warn/bad; switched-off rows dimmed) · name · one
@@ -21,13 +24,13 @@
  * Tap the row = edit. Theme variables + color-mix, so light themes work.
  */
 (() => {
-  const VERSION = "0.1.0";
+  const VERSION = "0.2.0";
   if (window.SBKit && window.SBKit.version === VERSION) return;
   const CSS = `
 ha-card { overflow: visible; }
 .sbk-head { display: flex; align-items: center; gap: 8px; padding: 12px 4px 8px 16px; }
 .sbk-head h2 { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.2; }
-.sbk-count { flex: 1; font-size: 13px; color: var(--secondary-text-color); }
+.sbk-count { flex: 1; font-size: 13px; color: var(--secondary-text-color); white-space: nowrap; }
 .sbk-add { display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 14px 0 10px; border-radius: 18px; border: none;
            background: color-mix(in srgb, var(--primary-color) 16%, transparent); color: var(--primary-color);
            font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; --mdc-icon-size: 18px; }
@@ -82,6 +85,12 @@ ha-card { overflow: visible; }
             background: color-mix(in srgb, var(--primary-text-color) 2.5%, transparent); }
 .sbk-step.off .sbk-txt { opacity: .5; }
 .sbk-step .sbk-t { font-size: 14px; }
+.sbk-row.dense { min-height: 48px; }
+.sbk-ico.sm { width: 32px; height: 32px; flex-basis: 32px; border-radius: 16px; --mdc-icon-size: 18px; }
+.sbk-ico.hit { cursor: pointer; transition: box-shadow .12s; }
+.sbk-ico.hit:hover { box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 30%, transparent); }
+.sbk-head .sbk-kb[disabled], .sbk-kb.dim { opacity: .4; cursor: default; }
+.sbk-kb.on-state { color: var(--primary-color); background: color-mix(in srgb, var(--primary-color) 12%, transparent); }
 .sbk-wait { color: var(--secondary-text-color); padding: 16px; }
 .sbk-note { color: var(--secondary-text-color); font-size: 13px; padding: 8px 16px 12px; border-top: 1px solid var(--divider-color); }
 `;
