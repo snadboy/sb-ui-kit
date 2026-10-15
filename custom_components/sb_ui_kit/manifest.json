@@ -1,0 +1,13 @@
+{
+  "domain": "sb_ui_kit",
+  "name": "SB UI Kit",
+  "codeowners": ["@snadboy"],
+  "config_flow": false,
+  "dependencies": ["http", "frontend"],
+  "documentation": "https://github.com/snadboy/sb-ui-kit",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/snadboy/sb-ui-kit/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
